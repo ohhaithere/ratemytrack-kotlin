@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: data-import-service
+  data-source:
+    url: jdbc:postgresql://localhost:5432/stage
+    username: postgres
+    password: postgres
