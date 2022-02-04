@@ -1,8 +1,7 @@
 spring:
   application:
-    name: track-service
-
+    name: rating-service
   data-source:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/stage
     username: postgres
     password: postgres

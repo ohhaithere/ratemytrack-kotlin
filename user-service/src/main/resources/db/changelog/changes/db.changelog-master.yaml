@@ -1,0 +1,26 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  ohhaithere
+       changes:
+         -  createTable:
+              tableName:  user
+              columns:
+                -  column:
+                     name:  id
+                     type:  UUID
+                -  column:
+                     name:  name
+                     type:  varchar
+                -  column:
+                     name:  password
+                     type:  varchar
+                -  column:
+                     name:  role
+                     type:  varchar
+                - column:
+                    name: email
+                    type: varchar
+                - column:
+                    name: joined
+                    type: timestamp

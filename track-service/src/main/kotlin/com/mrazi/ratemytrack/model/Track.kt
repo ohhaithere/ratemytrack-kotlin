@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class Track(
     @Id val id: UUID,
     val name: String,
-    val length: Integer,
+    val length: Int?,
     val userId: UUID,
     val uploadDate: LocalDateTime,
     val updateDate: LocalDateTime)

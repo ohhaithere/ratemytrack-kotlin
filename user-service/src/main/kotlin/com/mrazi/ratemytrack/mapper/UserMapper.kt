@@ -13,4 +13,8 @@ interface UserMapper {
     @InheritInverseConfiguration
     fun convertToModel(user: UserDto): User
 
+    fun convertUsersToDtos(users: List<User>): List<UserDto> {
+        return users.map { t -> convertToDto(t) }
+    }
+
 }
