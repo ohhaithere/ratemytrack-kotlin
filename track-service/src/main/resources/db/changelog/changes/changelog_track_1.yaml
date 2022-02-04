@@ -1,0 +1,26 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  2
+       author:  ohhaithere
+       changes:
+         -  createTable:
+              tableName:  track
+              columns:
+                -  column:
+                     name:  id
+                     type:  UUID
+                -  column:
+                     name:  name
+                     type:  varchar
+                -  column:
+                     name:  length
+                     type:  int
+                -  column:
+                     name:  user_id
+                     type:  UUID
+                - column:
+                    name: upload_date
+                    type: timestamp
+                - column:
+                    name: update_date
+                    type: timestamp

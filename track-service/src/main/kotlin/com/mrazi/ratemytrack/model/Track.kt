@@ -4,12 +4,14 @@ import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.Entity
 import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
+@Table(name = "track", schema = "public")
 data class Track(
-    @Id val id: UUID,
+    @Id var id: UUID?,
     val name: String,
     val length: Int?,
     val userId: UUID,
-    val uploadDate: LocalDateTime,
-    val updateDate: LocalDateTime)
+    var uploadDate: LocalDateTime?,
+    var updateDate: LocalDateTime?)

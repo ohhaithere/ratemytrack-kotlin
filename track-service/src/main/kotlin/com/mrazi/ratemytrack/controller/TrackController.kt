@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController
 class TrackController(val service:TrackService) {
 
     @PostMapping
-    fun upload(@RequestBody track: TrackDto){
-     service.upload(track);
+    fun upload(@RequestBody track: TrackDto): TrackDto {
+        return service.upload(track);
     }
 
 }

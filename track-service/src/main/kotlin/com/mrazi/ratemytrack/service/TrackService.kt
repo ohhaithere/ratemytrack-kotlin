@@ -13,13 +13,16 @@ class TrackService(private var trackRepository: TrackRepository, private var map
 
     fun upload(dto: TrackDto): TrackDto {
         val track = mapper.convertToModel(dto);
+        track.updateDate = LocalDateTime.now();
+        track.uploadDate = LocalDateTime.now();
+        track.id = UUID.randomUUID();
         trackRepository.save(track);
         return mapper.convertToDto(track);
     }
 
-    fun update(dto: TrackDto): TrackDto {
-        val track = trackRepository.getById(dto.id);
-        return mapper.convertToDto(track);
+    fun update(dto: TrackDto): TrackDto? {
+        val track = dto.id?.let { trackRepository.getById(it) };
+        return track?.let { mapper.convertToDto(it) };
     }
 
 }
