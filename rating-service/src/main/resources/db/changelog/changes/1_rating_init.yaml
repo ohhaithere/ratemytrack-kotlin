@@ -1,0 +1,26 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  ohhaithere
+       changes:
+         -  createTable:
+              tableName:  rating
+              columns:
+                -  column:
+                     name:  id
+                     type:  UUID
+                -  column:
+                     name:  user_id
+                     type:  UUID
+                -  column:
+                     name:  track_id
+                     type:  UUID
+                -  column:
+                     name:  rate
+                     type:  int
+                - column:
+                    name: created
+                    type: timestamp
+                - column:
+                    name: updated
+                    type: timestamp
