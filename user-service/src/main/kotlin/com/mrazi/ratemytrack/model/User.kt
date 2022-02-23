@@ -14,5 +14,5 @@ class User(
     val role: String,
     val email: String,
     val password: String,
-    var joined: LocalDateTime? = null,
+    var joined: LocalDateTime? = null
 )
