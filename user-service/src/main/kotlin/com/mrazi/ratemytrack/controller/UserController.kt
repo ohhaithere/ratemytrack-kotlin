@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
+@CrossOrigin
 @RequestMapping("/user")
 class UserController(val userService: UserService) {
 
@@ -14,8 +15,14 @@ class UserController(val userService: UserService) {
         return userService.save(dto);
     }
 
+    @PutMapping("/{id}")
+    fun update(@RequestBody dto: UserDto): UserDto {
+        return userService.update(dto);
+    }
 
-    fun get(id: UUID): UserDto {
+
+    @GetMapping("/{id}")
+    fun get(@PathVariable id: UUID): UserDto {
         return userService.get(id);
     }
 

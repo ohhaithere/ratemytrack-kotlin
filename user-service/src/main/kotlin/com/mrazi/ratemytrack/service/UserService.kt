@@ -19,6 +19,12 @@ class UserService(private var userRepository: UserRepository, private var mapper
         return mapper.convertToDto(user);
     }
 
+    fun update(dto: UserDto): UserDto {
+        val user = mapper.convertToModel(dto);
+        userRepository.save(user);
+        return mapper.convertToDto(user);
+    }
+
     fun get(id: UUID): UserDto {
         return mapper.convertToDto(userRepository.getById(id));
     }
