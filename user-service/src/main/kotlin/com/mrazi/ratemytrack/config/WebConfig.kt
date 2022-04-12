@@ -20,7 +20,7 @@ class WebConfig {
                 val allowedOrigins = corsOriginPatterns.split(",").toTypedArray()
                 registry.addMapping("/**")
                     .allowedMethods("*")
-                    .allowedOriginPatterns("http://localhost:3000")
+                    .allowedOriginPatterns("http://localhost:8070")
                     .allowCredentials(true)
             }
         }

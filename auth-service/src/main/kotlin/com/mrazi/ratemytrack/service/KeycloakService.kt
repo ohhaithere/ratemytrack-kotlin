@@ -26,14 +26,15 @@ class KeycloakService {
 
     @Value("\${keycloak.resource}")
     private val clientId: String? = null
-    private val role = "knowledgefactory-admin"
-    private val adminName = "knowledgefactory"
-    private val adminPassword = "password"
+    @Value("\${keycloak.secret}")
+    private val secret = "KHz8uycLMGYB3zvaOQB5wSKzgya64JRU";
+    private val role = "admin"
+    private val adminName = "admin"
+    private val adminPassword = "admin"
     private val realmAdmin = "master"
-    private val adminClientId = "admin-cli"
+    private val adminClientId = "ratemytrack-cli"
 
-    @Value("\${keycloak.credentials.secret}")
-    private val clientSecret: String? = null
+
     fun createEmployee(userDto: UserDto): UserDto {
         val keycloak = KeycloakBuilder.builder().serverUrl(authServerUrl)
             .grantType(OAuth2Constants.PASSWORD).realm(realmAdmin).clientId(adminClientId)
@@ -65,7 +66,7 @@ class KeycloakService {
 
     fun login(employeeVo: UserDto): Any {
         val clientCredentials: MutableMap<String, Any?> = HashMap()
-        clientCredentials["secret"] = clientSecret
+        clientCredentials["secret"] = secret
         clientCredentials["grant_type"] = "password"
         val configuration = Configuration(
             authServerUrl, realm, clientId,

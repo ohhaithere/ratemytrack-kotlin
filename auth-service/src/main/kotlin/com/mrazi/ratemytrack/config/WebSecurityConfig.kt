@@ -20,18 +20,16 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class WebSecurityConfig : KeycloakWebSecurityConfigurerAdapter() {
 
-    @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         super.configure(http)
         http.cors().and().csrf().disable().sessionManagement().
         sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().authorizeRequests()
-            .antMatchers("/user/").permitAll()
+            .antMatchers("/user/*").permitAll()
             .anyRequest().authenticated()
     }
 
     @Autowired
-    @Throws(Exception::class)
     fun configureGlobal(auth: AuthenticationManagerBuilder) {
         val keycloakAuthenticationProvider = keycloakAuthenticationProvider()
         keycloakAuthenticationProvider.setGrantedAuthoritiesMapper(SimpleAuthorityMapper())
