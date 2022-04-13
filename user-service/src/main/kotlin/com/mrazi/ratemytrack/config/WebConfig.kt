@@ -13,17 +13,5 @@ class WebConfig {
     @Value("\${cors.originPatterns:default}")
     private val corsOriginPatterns: String = ""
 
-    @Bean
-    fun addCorsConfig(): WebMvcConfigurer {
-        return object : WebMvcConfigurer {
-            override fun addCorsMappings(registry: CorsRegistry) {
-                val allowedOrigins = corsOriginPatterns.split(",").toTypedArray()
-                registry.addMapping("/**")
-                    .allowedMethods("*")
-                    .allowedOriginPatterns("http://localhost:8070")
-                    .allowCredentials(true)
-            }
-        }
-    }
 
 }
