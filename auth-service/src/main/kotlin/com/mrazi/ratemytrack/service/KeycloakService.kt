@@ -26,7 +26,6 @@ class KeycloakService {
 
     @Value("\${keycloak.resource}")
     private val clientId: String? = null
-    @Value("\${keycloak.secret}")
     private val secret = "KHz8uycLMGYB3zvaOQB5wSKzgya64JRU";
     private val role = "admin"
     private val adminName = "admin"
